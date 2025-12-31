@@ -14,6 +14,7 @@ class Wallet extends Model
 
   public static function getUserBalance($user)
   {
+    return null;
     $user = $user->load(relations: 'balance');
 
     if ($user->balance->isEmpty())

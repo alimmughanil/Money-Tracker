@@ -83,7 +83,7 @@ function NotificationDropdown() {
 
     if (data.type?.includes("REQUEST_PRODUCT")) {
       return router.visit(`/admin/product/${data.type.split("=").pop()}`)
-    }    
+    }
 
     switch (data.type) {
       case "PAYMENT_SUCCESS":
@@ -104,7 +104,7 @@ function NotificationDropdown() {
       <DropdownMenuTrigger asChild>
         <button className="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100">
           <i className="fas fa-bell text-xl text-gray-600"></i>
-          {parseInt(notification_count) !== 0 && (
+          {parseInt(notification_count) > 0 && (
             <div className="absolute bg-red-600 text-white w-[18px] h-[18px] -top-1 -right-1 rounded-full text-[10px] flex items-center justify-center">
               {notification_count}
             </div>
@@ -116,7 +116,7 @@ function NotificationDropdown() {
         align="end"
         className="w-[320px] p-0 rounded-lg shadow"
       >
-        {notification.length > 0 ? (
+        {notification?.length > 0 ? (
           <>
             <div className="flex items-center justify-between p-3 border-b">
               <p className="font-bold">Notifikasi</p>

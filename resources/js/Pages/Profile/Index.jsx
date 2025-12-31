@@ -47,11 +47,11 @@ const ProfileShow = () => {
           {currentTab === 'detail' && (
             <div className="space-y-8">
               <UpdateProfileInformationForm className='max-w-xl w-full sm:min-w-[24rem]' />
-              {auth?.user?.role != 'user' ? (
+              {/* {auth?.user?.role != 'user' ? (
                 <div className="border-t border-gray-200 pt-8">
                   <UpdateProfileDetailForm className='max-w-4xl w-full' />
                 </div>
-              ) : null}
+              ) : null} */}
             </div>
           )}
           {currentTab === 'password' && (

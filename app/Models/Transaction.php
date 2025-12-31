@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Enums\TransactionType;
 use App\Models\Category;
+use App\Models\Traits\Filterable;
+use App\Models\Traits\FilterRole;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Transaction extends Model
 {
-  use HasFactory, SoftDeletes;
+  use HasFactory, SoftDeletes, Filterable, FilterRole;
 
   protected $guarded = ['id'];
 

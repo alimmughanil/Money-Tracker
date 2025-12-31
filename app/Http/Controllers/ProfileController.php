@@ -54,23 +54,25 @@ class ProfileController extends Controller
       'name' => ['string', 'max:255'],
       'username' => ['string', 'max:255', Rule::unique(User::class, 'username')->ignore($request->user()->id)],
       'email' => ['email', 'max:255', Rule::unique(User::class, 'email')->ignore($request->user()->id)],
-      'phone' => ['nullable', 'numeric', 'digits_between:10,13', 'starts_with:08,02'],
+      'phone' => ['required', 'numeric', 'digits_between:10,13', 'starts_with:08,02'],
       'picture' => ['required', ...[is_file($request->picture) ? ['image', 'mimes:jpeg,png,jpg,gif,svg,webp,avif', 'max:2048'] : []]],
     ]);
     $profileData = $request->validate([
       'short_bio' => [
+        'nullable',
         'string',
         'max:255',
-        Rule::requiredIf(function () {
-          return auth()->user()->role == UserType::Partner;
-        })
+        // Rule::requiredIf(function () {
+        //   return auth()->user()->role == UserType::Partner;
+        // })
       ],
       'about' => [
+        'nullable',
         'string',
         'max:255',
-        Rule::requiredIf(function () {
-          return auth()->user()->role == UserType::Partner;
-        })
+        // Rule::requiredIf(function () {
+        //   return auth()->user()->role == UserType::Partner;
+        // })
       ],
     ]);
     $user = auth()->user()->load(['profile']);

@@ -17,7 +17,7 @@ class GoogleAuthController extends Controller
       'partner' => UserType::Partner,
       'user' => UserType::User
     ];
-    
+
     $role = null;
     if ($request->role && isset($roles[$request->role])) {
       $role = $roles[$request->role];
@@ -33,7 +33,9 @@ class GoogleAuthController extends Controller
 
       $state = request()->input('state');
       parse_str($state, $result);
-      $role = UserType::User;
+      // $role = UserType::User;
+      $role = UserType::Partner;
+
       if (!empty($result['role'])) {
         $role = $result['role'];
       }
@@ -61,7 +63,7 @@ class GoogleAuthController extends Controller
       auth()->login($existUser, true);
 
       if ($isRegistration && $role == UserType::Partner) {
-        return redirect(route('auth.profile.index'))->with("success","Pembuatan akun anda berhasil, silahkan lengkapi data profil anda.");
+        return redirect(route('auth.profile.index'))->with("success", "Pembuatan akun anda berhasil, silahkan lengkapi data profil anda.");
       }
 
       $redirectUrl = request()->session()->pull('redirect_auth_url', route('auth.dashboard.app'));

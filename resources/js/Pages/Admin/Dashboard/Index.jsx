@@ -5,6 +5,7 @@ import { Link, usePage } from "@inertiajs/react";
 import WalletModal from "./Modal/WalletModal";
 
 function Index(props) {
+  return <DefaultCard />
   if (props.auth?.user?.role != 'partner') return <DefaultCard />
 
   return (
@@ -33,7 +34,7 @@ function Index(props) {
           </div>
         </ReportCard>
       </div>
-      <WalletModal/>
+      <WalletModal />
     </AuthenticatedLayout>
   );
 }

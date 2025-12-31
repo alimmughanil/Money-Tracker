@@ -96,27 +96,41 @@ const useTableHeader = () => {
       value: "date",
       type: "date",
       isSearchable: true,
+      className: "text-[13px] w-[10%] md:w-[100px] !whitespace-pre",
+      dateFormat: "DD MMM YYYY"
     },
     {
       label: "Kategori",
       value: "category.name",
+      isSearchable: true,
+      isHidden: true,
     },
     {
       label: "User",
       value: "user.name",
+      isSearchable: true,
     },
     {
       label: "Tipe",
       value: "type",
+      isSearchable: true,
     },
     {
       label: "Jumlah",
       value: "amount",
       type: "currency",
+      isSearchable: true,
     },
     {
       label: "Deskripsi",
       value: "description",
+      isSearchable: true,
+    },
+    {
+      label: "Ditambahkan",
+      value: "created_at",
+      type: "date",
+      isSearchable: true,
     },
     {
       label: "Dihapus",

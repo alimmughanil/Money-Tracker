@@ -42,81 +42,16 @@ const useSidebarMenu = () => {
       link: "/admin/users",
     },
     {
-      title: 'Produk',
-      fa_icon: 'fas fa-box-open',
-      icon_provider: 'fontawesome',
-      link: '/admin/product'
-    },
-    {
-      title: "Pesanan",
-      fa_icon: "fas fa-shopping-cart",
-      icon_provider: "fontawesome",
-      link: "/admin/order",
-    },
-    {
-      title: 'Rekening Bank',
-      fa_icon: 'fas fa-money-check-dollar',
-      icon_provider: "fontawesome",
-      link: '/admin/bank'
-    },
-    {
-      title: 'Penarikan Dana',
-      fa_icon: 'fas fa-money-bill-transfer',
-      icon_provider: "fontawesome",
-      link: '/admin/withdraw'
-    },
-    {
       title: "Kategori",
       fa_icon: "fas fa-tags",
       icon_provider: "fontawesome",
       link: "/admin/categories",
     },
     {
-      title: 'Tag',
+      title: 'Transaksi',
       fa_icon: 'fas fa-hashtag',
       icon_provider: 'fontawesome',
-      link: '/admin/tag'
-    },
-    {
-      title: 'Pricing',
-      fa_icon: 'fas fa-tags',
-      icon_provider: 'fontawesome',
-      link: '/admin/pricing'
-    },
-    {
-      title: "Kotak Masuk",
-      fa_icon: "fas fa-envelope",
-      icon_provider: "fontawesome",
-      link: "/admin/contact",
-    },
-    {
-      title: "Blog",
-      icon: Rss,
-      dropdown: [
-        {
-          title: "Kategori Blog",
-          link: "/admin/blog/blog_categories"
-        },
-        {
-          title: "Artikel Blog",
-          link: "/admin/blog/blogs"
-        }
-      ]
-    },
-    {
-      title: "Portofolio",
-      fa_icon: "fas fa-business-time",
-      icon_provider: "fontawesome",
-      dropdown: [
-        {
-          title: "Kategori",
-          link: "/admin/portfolio/category",
-        },
-        {
-          title: "Proyek",
-          link: "/admin/portfolio/project",
-        },
-      ],
+      link: '/admin/transactions'
     },
     {
       title: "Konfigurasi",
@@ -125,10 +60,6 @@ const useSidebarMenu = () => {
         {
           title: "Pengaturan Umum",
           link: "/admin/configuration",
-        },
-        {
-          title: "Daftar Bank",
-          link: "/admin/supported-bank",
         },
       ],
     },
@@ -143,10 +74,7 @@ const useSidebarMenu = () => {
   if (["partner"].includes(user?.role)) {
     routes = [
       '/admin/dashboard',
-      '/admin/product',
-      '/admin/order',
-      '/admin/withdraw',
-      '/admin/bank',
+      '/admin/transactions',
       "/app/profile",
     ]
   }

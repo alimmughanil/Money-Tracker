@@ -2,8 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\Product;
-use App\Models\Blog;
 use Inertia\Inertia;
 use App\Utils\Helper;
 use Inertia\Middleware;
@@ -14,7 +12,6 @@ use Illuminate\Http\Request;
 use App\Models\Configuration;
 use App\Enums\OriginStatusType;
 use App\Enums\ConfigurationType;
-use App\Models\Notification;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -47,15 +44,6 @@ class HandleInertiaRequests extends Middleware
     $user = $request->user();
     $notif = null;
     $notif_count = null;
-    if ($user) {
-      $notif = Notification::where('user_id', $request->user()->id)
-        ->with('order')
-        ->orderBy('created_at', 'desc')
-        ->limit(20)
-        ->get();
-      $notif_count = Notification::where('user_id', $request->user()->id)
-        ->whereNull('read_at')->count();
-    }
     $has_password = isset($user?->password);
     return array_merge(parent::share($request), [
       'appName' => config('app.name'),
@@ -109,8 +97,6 @@ class HandleInertiaRequests extends Middleware
 
     if (count($disabled) == 0 || $request->getPathInfo() == '/') {
       $categories = Category::select('id', 'name', 'slug')->inRandomOrder()->limit(10)->get();
-      $products = Product::select('id', 'name', 'slug')->inRandomOrder()->limit(10)->get();
-      $blogs = Blog::select('id', 'title', 'slug')->where('status', 'publish')->inRandomOrder()->limit(10)->get();
       $networks = [
         // ['title' => 'Qerja', 'url' => 'https://qerja.id'],
         // ['title' => 'Qursus', 'url' => 'https://qursus.id'],
@@ -119,8 +105,6 @@ class HandleInertiaRequests extends Middleware
 
       $footer = [
         'categories' => $categories,
-        'products' => $products,
-        'blogs' => $blogs,
         'networks' => $networks,
       ];
     }

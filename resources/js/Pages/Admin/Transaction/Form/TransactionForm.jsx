@@ -32,14 +32,14 @@ const getProperties = (state) => {
       },
     ],
     [
-      {
-        form: "select",
-        props: {
-          name: "category_id",
-          label: "Kategori",
-          options: props.categoryOptions,
-        },
-      },
+      // {
+      //   form: "select",
+      //   props: {
+      //     name: "category_id",
+      //     label: "Kategori",
+      //     options: props.categoryOptions,
+      //   },
+      // },
       {
         form: 'input',
         props: {

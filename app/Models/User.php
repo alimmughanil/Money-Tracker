@@ -50,6 +50,11 @@ class User extends Authenticatable
     return $this->hasMany(\App\Models\Wallet::class, 'user_id', 'id')->select($select);
   }
 
+  public function profile()
+  {
+    return $this->hasOne(\App\Models\Profile::class);
+  }
+
   public function wallet()
   {
     return $this->hasMany(\App\Models\Wallet::class, 'user_id', 'id');
