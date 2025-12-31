@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use App\Enums\UserType;
-use App\Enums\OriginStatusType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -50,7 +49,7 @@ class UsersController extends BaseResourceController
         "phone" => ["nullable", "numeric", "digits_between:10,13", "starts_with:08,02"],
       ],
       "default" => [
-        "status" => OriginStatusType::Active,
+        "status" => 'active',
       ],
     ];
   }
@@ -61,7 +60,7 @@ class UsersController extends BaseResourceController
       "page" => $this->page,
       "isAdmin" => $this->isAdmin,
       "roles" => UserType::getValues(),
-      "status" => OriginStatusType::getValues(),
+      "status" => ['active', 'inactive'],
     ];
   }
 

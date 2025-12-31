@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Utils\Helper;
 use App\Models\Category;
-use App\Enums\CategoryType;
 use Illuminate\Http\Request;
-use App\Enums\PublishStatusType;
 use App\Http\Controllers\Core\BaseResourceController;
 
 class CategoryController extends BaseResourceController
@@ -39,7 +37,7 @@ class CategoryController extends BaseResourceController
         "parent_id" => "nullable|exists:categories,id",
         "name" => "required|string|max:255",
         "slug" => "nullable|string|unique:categories,slug,$id",
-        "type" => "required|string|max:255",
+        "type" => "nullable|string|max:255",
         "thumbnail" => ["nullable", ...[is_file($request->thumbnail) ? ["image", "mimes:jpeg,png,jpg,gif,svg,webp,avif", "max:2048"] : []]],
         "description" => "nullable|string",
         'is_thumbnail_icon' => 'nullable',
@@ -47,7 +45,7 @@ class CategoryController extends BaseResourceController
         'is_featured' => 'nullable',
       ],
       "default" => [
-        "type" => CategoryType::Product,
+        "type" => 'product',
         'is_thumbnail_icon' => false,
         'is_active' => true,
         'is_featured' => false,
@@ -59,7 +57,7 @@ class CategoryController extends BaseResourceController
   {
     $formData = [
       ...parent::getFormData($request, $model),
-      "type" => CategoryType::getValues()
+      "type" => ['product']
     ];
 
     return $formData;

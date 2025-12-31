@@ -14,7 +14,7 @@ return new class extends Migration {
       $table->foreignId('parent_id')->nullable()->constrained('categories')->onDelete('cascade');
       $table->string('name');
       $table->string('slug')->nullable()->index();
-      $table->string('type')->default(CategoryType::Course)->index();
+      $table->string('type')->default(CategoryType::Product)->index();
       $table->longText('thumbnail')->nullable();
       $table->longText('description')->nullable();
       $table->timestamps();
