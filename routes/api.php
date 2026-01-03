@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
   return $request->user();
 });
 
-Route::post('api/transaction/{phone}/n8n', [TransactionController::class, 'webhook'])->withoutMiddleware(['auth', 'csrf']);
+Route::post('transaction/{phone}/n8n', [TransactionController::class, 'webhook'])->withoutMiddleware(['auth', 'csrf']);

@@ -40,7 +40,7 @@ class TransactionController extends BaseResourceController
         $amount = isset($item['Total']) ? (int) preg_replace('/[^0-9]/', '', $item['Total']) : 0;
         $items = isset($item['Items']) ? explode(',', $item['Items']) : [];
 
-        // convert "8:47:43" and "2025-12-30" to date handling if needed, 
+        // convert "8:47:43" and "2025-12-30" to date handling if needed,
         // but for now relying on "Tanggal Struk" or "Tanggal Input" if struk is empty
         $date = $item['Tanggal Struk'] ?? $item['Tanggal Input'] ?? date('Y-m-d');
 
@@ -51,8 +51,7 @@ class TransactionController extends BaseResourceController
           'amount' => $amount,
           'date' => $date,
           'shop_name' => $item['Toko'] ?? null,
-          'items' => $items,
-          'description' => 'Imported via webhook',
+          'description' => $item['Items'],
         ]);
       }
       DB::commit();
