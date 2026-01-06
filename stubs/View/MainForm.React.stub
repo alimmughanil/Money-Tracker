@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { usePage } from '@inertiajs/react';
-import useFormBuilder from '@/utlis/useFormBuilder';
+import useFormBuilder from '@/utils/useFormBuilder';
 import FormBuilder from '@/Components/FormBuilder';
-import { slugify, useSearchParams } from '@/utlis/format';
+import { slugify, useSearchParams } from '@/utils/format';
 
 function MainForm({ isEdit = false, formOptions = {}, BackButton = null }) {
     const formConfig = { isEdit, getProperties, formOptions }

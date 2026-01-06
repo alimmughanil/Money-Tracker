@@ -1,5 +1,5 @@
-import { currency, date, getDurationTotal } from '@/utlis/format'
-import useLang from '@/utlis/useLang';
+import { currency, date, getDurationTotal } from '@/utils/format'
+import useLang from '@/utils/useLang';
 import { Award, BookCopy, BookOpen, Clock, FileQuestion, GraduationCap, PlaySquare } from 'lucide-react';
 import moment from 'moment';
 import { useState } from 'react';

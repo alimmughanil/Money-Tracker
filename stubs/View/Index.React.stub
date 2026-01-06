@@ -3,7 +3,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import Table from "@/Components/Table";
 import DeleteModal from "@/Components/Modal/DeleteModal";
 import { ModalButton } from "@/Components/WithModal";
-import { useSearchParams } from "@/utlis/format";
+import { useSearchParams } from "@/utils/format";
 import RestoreModal from "@/Components/Modal/RestoreModal";
 import DetailModal from "@/Components/Modal/DetailModal";
 import DetailModalContent from '@/Components/Default/DetailModalContent';

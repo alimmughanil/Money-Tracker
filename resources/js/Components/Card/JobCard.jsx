@@ -1,4 +1,4 @@
-import { currency, htmlToString } from '@/utlis/format';
+import { currency, htmlToString } from '@/utils/format';
 import { useState } from 'react';
 
 const JobCard = ({ job, isPoster = true }) => {
